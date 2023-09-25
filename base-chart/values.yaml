@@ -1,0 +1,12 @@
+microservices:
+  ms1:
+    name: nginx
+    replicaCount: 2
+    image: nginx:latest
+    port: 8080
+  ms2:
+    name: openjdk
+    replicaCount: 2
+    image: openjdk:latest
+    port: 8080
+

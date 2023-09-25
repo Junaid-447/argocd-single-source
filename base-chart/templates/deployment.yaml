@@ -1,0 +1,24 @@
+{{ if .Values.microservices }}
+{{- range $k, $v := $.Values.microservices }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $v.name }}-deployment
+spec:
+  replicas: {{ $v.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ $v.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $v.name }}
+    spec:
+      containers:
+        - name: {{ $v.name }}
+          image: {{ $v.image }}
+          ports:
+            - containerPort: {{ $v.port }}
+{{- end }}
+{{- end }}

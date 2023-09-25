@@ -1,0 +1,15 @@
+{{ if .Values.microservices }}
+{{- range $k, $v := $.Values.microservices }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $v.name }}-service
+spec:
+  selector:
+    app: {{ $v.name }}
+  ports:
+    - protocol: TCP
+      port: 80
+{{- end }}
+{{- end }}

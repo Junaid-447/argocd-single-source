@@ -1,0 +1,17 @@
+base-chart:
+  microservices:
+    ms1:
+      name: nginx
+      replicaCount: 1
+      image: nginx:latest
+      port: 8080
+    ms2:
+      name: hello-world
+      replicaCount: 4
+      image: hello-world:latest
+      port: 8080
+    ms3:
+      name: busy-box
+      replicaCount: 1
+      image: busybox:latest
+      port: 8080
